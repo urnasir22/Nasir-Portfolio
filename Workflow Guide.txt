@@ -1,0 +1,34 @@
+
+---
+
+### Workflow Guide (for **Pagination & Filtering** Collection)
+
+```markdown
+# Pagination & Filtering Workflow
+
+## Purpose
+
+Demonstrate how to test paginated endpoints and edge-case filters.
+
+## Steps
+
+1. **GET List (page=1)**  
+   - Verify `page`, `per_page`, `total`, `total_pages` fields.  
+   - Assert that `data.length <= per_page`.
+
+2. **Loop Through Pages**  
+   - Use a pre-request script to increment `page` until `page > total_pages`.  
+   - Collect all IDs into `allUserIds` array.
+
+3. **Filter by Name**  
+   - Query with `?first_name={{filterName}}`, verify all returned `first_name` match.
+
+4. **Negative Case: Invalid Page**  
+   - Set `page=999`, expect `data: []`, status `200`.
+
+## Key Scripts
+
+### Pre-request (loop pages)
+```js
+let page = pm.environment.get("page") || 1;
+pm.variables.set("page", page);
