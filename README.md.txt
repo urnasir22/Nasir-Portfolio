@@ -1,39 +1,51 @@
-# API Testing Portfolio
 
-This repository contains **10** Postman collections demonstrating a wide variety of API-testing concepts, from basic CRUD to advanced security and performance tests.
+---
 
-## Contents
+## 🔹 Collections Overview
 
-1. **Auth & Session** – login, token management  
-2. **User CRUD** – create/read/update/delete users  
-3. **Product CRUD** – e-commerce product lifecycle  
-4. **Pagination & Filtering** – list endpoints with pagination  
-…  
-30. **Continuous Integration** – Newman + Travis CI integration
+1. **Auth_Session**  
+   - Login and Logout flows using ReqRes.in  
+2. **User_CRUD**  
+   - Create, Read, Delete users using JSONPlaceholder  
+3. **Product_CRUD**  
+   - CRUD operations on products using FakeStoreAPI  
+4. **Pagination_Filtering**  
+   - Paginated user lists and filtering using ReqRes.in  
+5. **File_Upload_Download**  
+   - Upload and download files using Postman Echo  
+6. **Order_Processing**  
+   - Order management using FakeStoreAPI carts endpoints  
+7. **Payment_Gateway**  
+   - Simulated payment initiation and status checks (Postman Echo)  
+8. **Notifications_API**  
+   - Simulated notifications get/create/delete (Postman Echo)  
+9. **Booking_Flow**  
+   - Hotel booking create/read using Restful Booker API  
+10. **Search_Query**  
+   - Book search by title/author using OpenLibrary API  
 
-## Environments
+*(More collections coming soon to cover parts like “Search & Query,” “Rate Limiting,” “OAuth2,” etc.)*
 
-- `Development.postman_environment.json`: for local testing (ReqRes.in)  
-- `Production.postman_environment.json`: for live API endpoints
+---
 
-## Getting Started
+## 🔍 Environments
 
-1. Install Postman v10+  
-2. Import all `*.postman_collection.json` files  
-3. Load the appropriate environment  
-4. Run collections individually or via Newman
+- **Testing.postman_environment.json**  
+  - Defines:  
+    - `baseUrl = https://reqres.in/api`  
+    - `user.email = eve.holt@reqres.in`  
+    - `user.password = cityslicka`  
+    - `authToken = ` (empty by default)  
 
-## CI Integration
+- **Production.postman_environment.json**  
+  - Placeholder for actual API hosts, e.g.,  
+    - `baseUrl = https://api.yourcompany.com`  
+    - `authToken = ` (empty by default)
 
-A `.travis.yml` is provided to run all collections via Newman on each push:
+---
 
-```yaml
-language: node_js
-node_js:
-  - "14"
-install:
-  - npm install -g newman
-script:
-  - newman run ./collections/Auth_Session.postman_collection.json -e ./environments/Development.postman_environment.json
-  - newman run ./collections/User_CRUD.postman_collection.json -e ./environments/Development.postman_environment.json
-  # … all others …
+## 🚀 How to Import & Run
+
+1. **Download or Clone** this repo:  
+   ```bash
+   git clone https://github.com/urnasir22/postman-api-portfolio.git
