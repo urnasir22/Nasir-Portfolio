@@ -1,71 +1,47 @@
-.education-main {
-  width: 100%;
+.main {
+  width: 90%;
+  padding: 20px 10px;
+  margin: 0px auto;
+  margin-top: 2rem;
 }
 
-.basic-education {
-  margin-left: 5%;
-  margin-right: 5%;
-}
-
-.heading-div {
+.educations-header-div {
   display: flex;
-}
-
-.heading-div > * {
-  flex: 1;
-}
-
-.heading-img-div {
-  display: flex;
-  align-items: center;
   justify-content: center;
+  margin-bottom: 2rem;
 }
 
-.heading-text-div {
-  text-align: center;
+.educations-body-div {
+  display: flex;
+  flex-direction: column;
+  gap: 2rem;
 }
 
-.heading-img-div > * {
-  max-width: 100%;
-  height: auto;
+.certifications-container {
+  margin-top: 2rem;
 }
 
-.heading-text {
-  font-size: 56px;
-  font-weight: 400;
-  font-family: "Google Sans Medium";
-  line-height: 1.1;
-  text-align: center;
-  margin-top: 100px;
+.certifications-list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 1.5rem;
+  margin-top: 1rem;
 }
 
-.heading-sub-text {
-  font-size: 30px;
-  font-family: "Google Sans Regular";
-  text-align: center;
+.certification-card {
+  background: #f9f9f9;
+  border-radius: 10px;
+  padding: 1.5rem;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  transition: transform 0.3s ease;
 }
 
-@media (max-width: 1380px) {
-  .heading-text {
-    font-size: 50px;
-    margin-top: 80px;
-  }
-  .heading-sub-text {
-    font-size: 25px;
-  }
+.certification-card:hover {
+  transform: translateY(-5px);
 }
 
 @media (max-width: 768px) {
-  .heading-text {
-    font-size: 30px;
-    margin-top: 20px;
-  }
-
-  .heading-sub-text {
-    font-size: 20px;
-  }
-
-  .heading-div {
-    flex-direction: column;
+  .certifications-list {
+    grid-template-columns: 1fr;
   }
 }
