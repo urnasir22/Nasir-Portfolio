@@ -195,4 +195,9 @@ export const materialTealTheme = {
   splashBg: "#05505E",
 };
 
+const theme = {
+  splashColor: "#1F6FEB", // GitHub-like blue
+  // ... keep other colors
+};
+
 export const chosenTheme = blueTheme;

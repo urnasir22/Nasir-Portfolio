@@ -1,20 +1,23 @@
-import React from "react";
-import "./App.css";
-import Main from "./containers/Main";
-import { ThemeProvider } from "styled-components";
-import { chosenTheme } from "./theme";
-import { GlobalStyles } from "./global";
+import React, { useState, useEffect } from 'react';
+import SplashScreen from './containers/SplashScreen';
+import MainBody from './containers/mainBody/MainBody';
+import { settings } from './portfolio';
 
 function App() {
+  const [showSplash, setShowSplash] = useState(true);
+  
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      setShowSplash(false);
+    }, 3500); // Splash screen duration
+    
+    return () => clearTimeout(timer);
+  }, []);
+
   return (
-    <ThemeProvider theme={chosenTheme}>
-      <>
-        <GlobalStyles />
-        <div>
-          <Main theme={chosenTheme} />
-        </div>
-      </>
-    </ThemeProvider>
+    <div className="App">
+      {settings.isSplash && showSplash ? <SplashScreen /> : <MainBody />}
+    </div>
   );
 }
 
