@@ -1,4 +1,13 @@
-<style>
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Snapshots of My Journey</title>
+
+  <!-- Swiper CSS (Slider Library) -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+  <style>
   body {
     background: #0f172a;
     color: white;
@@ -28,3 +37,49 @@
     box-shadow: 0 5px 25px rgba(0,0,0,0.3);
   }
 </style>
+
+</head>
+<body>
+
+<h1>Snapshots of My Journey</h1>
+
+<!-- Slider Container -->
+<div class="swiper">
+  <div class="swiper-wrapper">
+
+    <!-- Images -->
+    <div class="swiper-slide"><img src="media/photo1.jpg" alt="Photo 1"></div>
+    <div class="swiper-slide"><img src="media/photo2.jpg" alt="Photo 2"></div>
+    <div class="swiper-slide"><img src="media/photo3.jpg" alt="Photo 3"></div>
+
+    <!-- Videos -->
+    <div class="swiper-slide"><video controls><source src="media/video1.mp4" type="video/mp4"></video></div>
+
+  </div>
+
+  <!-- Navigation buttons -->
+  <div class="swiper-button-next"></div>
+  <div class="swiper-button-prev"></div>
+
+  <!-- Pagination -->
+  <div class="swiper-pagination"></div>
+</div>
+
+<!-- Swiper JS -->
+<script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+<script>
+  const swiper = new Swiper('.swiper', {
+    loop: true,
+    pagination: {
+      el: '.swiper-pagination',
+      clickable: true,
+    },
+    navigation: {
+      nextEl: '.swiper-button-next',
+      prevEl: '.swiper-button-prev',
+    },
+  });
+</script>
+
+</body>
+</html>
