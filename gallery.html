@@ -5,45 +5,45 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Snapshots of My Journey</title>
 
-  <!-- Swiper CSS (Slider Library) -->
+  <!-- Swiper CSS -->
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
-  <style>
-  body {
-    background: #0f172a;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-  }
-  h1 {
-    padding: 20px 0 10px 0; /* Top padding kam kiya */
-    margin-bottom: 20px; /* Heading ke niche space */
-  }
-  .swiper {
-    width: 90%;
-    height: 70vh; /* Height thodi kam ki */
-    margin-top: 10px; /* Heading se thoda niche */
-  }
-  .swiper-slide {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-  }
-  .swiper-slide img, .swiper-slide video {
-    max-width: 100%;
-    max-height: 100%;
-    border-radius: 15px;
-    box-shadow: 0 5px 25px rgba(0,0,0,0.3);
-  }
-</style>
 
+  <style>
+    body {
+      background: #0f172a;
+      color: white;
+      font-family: Arial, sans-serif;
+      text-align: center;
+      margin: 0;
+      padding: 0;
+    }
+    h1 {
+      padding: 20px 0 10px 0;
+      margin-bottom: 20px;
+    }
+    .swiper {
+      width: 90%;
+      height: 70vh;
+      margin: 0 auto; /* Center horizontally */
+    }
+    .swiper-slide {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .swiper-slide img, .swiper-slide video {
+      max-width: 100%;
+      max-height: 100%;
+      border-radius: 15px;
+      box-shadow: 0 5px 25px rgba(0,0,0,0.3);
+    }
+  </style>
 </head>
 <body>
 
 <h1>Snapshots of My Journey</h1>
 
-<!-- Slider Container -->
+<!-- Slider -->
 <div class="swiper">
   <div class="swiper-wrapper">
 
@@ -52,16 +52,14 @@
     <div class="swiper-slide"><img src="media/2.JPG" alt="Photo 2"></div>
     <div class="swiper-slide"><img src="media/3.JPG" alt="Photo 3"></div>
 
-    <!-- Videos -->
+    <!-- Video -->
     <div class="swiper-slide"><video controls><source src="media/video1.mp4" type="video/mp4"></video></div>
 
   </div>
 
-  <!-- Navigation buttons -->
+  <!-- Navigation -->
   <div class="swiper-button-next"></div>
   <div class="swiper-button-prev"></div>
-
-  <!-- Pagination -->
   <div class="swiper-pagination"></div>
 </div>
 
