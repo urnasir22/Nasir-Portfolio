@@ -1,0 +1,53 @@
+{
+  "info": {
+    "name": "File_Upload_Download",
+    "_postman_id": "55555555-5555-5555-5555-555555555555",
+    "description": "Demo file upload and download using Postman Echo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "File Upload (Form-Data)",
+      "request": {
+        "method": "POST",
+        "header": [],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            {
+              "key": "file",
+              "type": "file",
+              "src": ""
+            },
+            {
+              "key": "description",
+              "type": "text",
+              "value": "Test file upload"
+            }
+          ]
+        },
+        "url": {
+          "raw": "https://postman-echo.com/post",
+          "protocol": "https",
+          "host": ["postman-echo","com"],
+          "path": ["post"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Download File (Image)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://postman-echo.com/image/png",
+          "protocol": "https",
+          "host": ["postman-echo","com"],
+          "path": ["image","png"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "info": {
+    "name": "Notifications_API",
+    "_postman_id": "88888888-8888-8888-8888-888888888888",
+    "description": "Simulated notification get/create flows using Postman Echo",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET Notifications",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://postman-echo.com/get?type=notification",
+          "protocol": "https",
+          "host": ["postman-echo","com"],
+          "path": ["get"],
+          "query": [
+            { "key": "type", "value": "notification" }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CREATE Notification (POST)",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"to\": \"user@example.com\",\n  \"message\": \"Your order has shipped\",\n  \"type\": \"email\"\n}"
+        },
+        "url": {
+          "raw": "https://postman-echo.com/post",
+          "protocol": "https",
+          "host": ["postman-echo","com"],
+          "path": ["post"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "DELETE Notifications",
+      "request": {
+        "method": "DELETE",
+        "header": [],
+        "url": {
+          "raw": "https://postman-echo.com/delete?type=notification",
+          "protocol": "https",
+          "host": ["postman-echo","com"],
+          "path": ["delete"],
+          "query": [
+            { "key": "type", "value": "notification" }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

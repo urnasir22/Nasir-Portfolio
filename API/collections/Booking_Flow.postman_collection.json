@@ -1,0 +1,58 @@
+{
+  "info": {
+    "name": "Booking_Flow",
+    "_postman_id": "99999999-9999-9999-9999-999999999999",
+    "description": "Hotel booking create/read flows using Restful Booker API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET All Bookings",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://restful-booker.herokuapp.com/booking",
+          "protocol": "https",
+          "host": ["restful-booker","herokuapp","com"],
+          "path": ["booking"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Single Booking",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "https://restful-booker.herokuapp.com/booking/1",
+          "protocol": "https",
+          "host": ["restful-booker","herokuapp","com"],
+          "path": ["booking","1"]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "CREATE Booking",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"firstname\": \"John\",\n  \"lastname\": \"Doe\",\n  \"totalprice\": 150,\n  \"depositpaid\": true,\n  \"bookingdates\": {\"checkin\": \"2023-07-01\", \"checkout\": \"2023-07-05\"},\n  \"additionalneeds\": \"Breakfast\"\n}"
+        },
+        "url": {
+          "raw": "https://restful-booker.herokuapp.com/booking",
+          "protocol": "https",
+          "host": ["restful-booker","herokuapp","com"],
+          "path": ["booking"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

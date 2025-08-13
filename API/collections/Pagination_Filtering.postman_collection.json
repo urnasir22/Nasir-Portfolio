@@ -1,0 +1,75 @@
+{
+  "info": {
+    "name": "Pagination_Filtering",
+    "_postman_id": "44444444-4444-4444-4444-444444444444",
+    "description": "Test paginated user lists and filtering using ReqRes.in",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "GET Users Page 1",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/users?page=1",
+          "host": ["{{baseUrl}}"],
+          "path": ["users"],
+          "query": [
+            { "key": "page", "value": "1" }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Users Page 2",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/users?page=2",
+          "host": ["{{baseUrl}}"],
+          "path": ["users"],
+          "query": [
+            { "key": "page", "value": "2" }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Users with Per_Page=3",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/users?page=1&per_page=3",
+          "host": ["{{baseUrl}}"],
+          "path": ["users"],
+          "query": [
+            { "key": "page", "value": "1" },
+            { "key": "per_page", "value": "3" }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "GET Invalid Page",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "{{baseUrl}}/users?page=999",
+          "host": ["{{baseUrl}}"],
+          "path": ["users"],
+          "query": [
+            { "key": "page", "value": "999" }
+          ]
+        }
+      },
+      "response": []
+    }
+  ]
+}

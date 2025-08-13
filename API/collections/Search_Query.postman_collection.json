@@ -1,0 +1,58 @@
+{
+  "info": {
+    "name": "Search_Query",
+    "_postman_id": "aaaaaaaa-aaaa-aaaa-aaaa-aaaaaaaaaaaa",
+    "description": "Search books using OpenLibrary API",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "Search by Title",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://openlibrary.org/search.json?title=harry+potter",
+          "protocol": "http",
+          "host": ["openlibrary","org"],
+          "path": ["search.json"],
+          "query": [
+            { "key": "title", "value": "harry potter" }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search by Author",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://openlibrary.org/search.json?author=tolkien",
+          "protocol": "http",
+          "host": ["openlibrary","org"],
+          "path": ["search.json"],
+          "query": [
+            { "key": "author", "value": "tolkien" }
+          ]
+        }
+      },
+      "response": []
+    },
+    {
+      "name": "Search Missing Query (No Param)",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": {
+          "raw": "http://openlibrary.org/search.json",
+          "protocol": "http",
+          "host": ["openlibrary","org"],
+          "path": ["search.json"]
+        }
+      },
+      "response": []
+    }
+  ]
+}

@@ -1,0 +1,103 @@
+{
+  "info": {
+    "name": "Auth_Session",
+    "_postman_id": "11111111-1111-1111-1111-111111111111",
+    "description": "Login, refresh token, and logout flows against ReqRes.in",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1_Login",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"{{user.email}}\",\n  \"password\": \"{{user.password}}\"\n}"
+        },
+        "url": {
+          "raw": "{{baseUrl}}/login",
+          "host": ["{{baseUrl}}"],
+          "path": ["login"]
+        }
+      },
+      "response": [],
+      "event": [
+        {
+          "listen": "prerequest",
+          "script": {
+            "exec": [
+              "// set timestamp header",
+              "pm.request.headers.add({ key: 'X-Request-Timestamp', value: new Date().toISOString() });"
+            ]
+          }
+        },
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status is 200', () => pm.response.to.have.status(200));",
+              "const json = pm.response.json();",
+              "pm.test('Token received', () => pm.expect(json).to.have.property('token'));",
+              "pm.environment.set('authToken', json.token);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "2_Refresh Token",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{authToken}}" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/token/refresh",
+          "host": ["{{baseUrl}}"],
+          "path": ["token","refresh"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status is 200', () => pm.response.to.have.status(200));",
+              "const j=pm.response.json();",
+              "pm.test('New token different', () => pm.expect(j.token).to.not.equal(pm.environment.get('authToken')));",
+              "pm.environment.set('authToken', j.token);"
+            ]
+          }
+        }
+      ]
+    },
+    {
+      "name": "3_Logout",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{authToken}}" }
+        ],
+        "url": {
+          "raw": "{{baseUrl}}/logout",
+          "host": ["{{baseUrl}}"],
+          "path": ["logout"]
+        }
+      },
+      "event": [
+        {
+          "listen": "test",
+          "script": {
+            "exec": [
+              "pm.test('Status is 204', () => pm.response.to.have.status(204));"
+            ]
+          }
+        }
+      ]
+    }
+  ]
+}
